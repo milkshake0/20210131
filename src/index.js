@@ -1,3 +1,4 @@
-console.log()
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-var a = 10
+ReactDOM.render(<div>React APP2</div>, document.getElementById('root'))
