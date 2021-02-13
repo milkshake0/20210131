@@ -1,12 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import ResetCSS from './components/shared/reset.css'
+import ResetCSS from './components/shared/reset-css'
 import HomePage from './pages/home'
 import MyInfoPage from './pages/my-info'
 import SearchPage from './pages/search'
 import SigninPage from './pages/signin'
 import ErrorPage from './pages/error'
+import BoxMakerPage from './pages/box-maker'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/myinfo" component={MyInfoPage} />
           <Route path="/signin" component={SigninPage} />
           <Route path="/search" component={SearchPage} />
+          <Route path="/boxmaker" component={BoxMakerPage} />
           <Route component={ErrorPage} />
         </Switch>
       </BrowserRouter>
