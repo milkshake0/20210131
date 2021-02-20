@@ -35,10 +35,19 @@ function SearchPage() {
     )
   }
 
+  //2021.02.21 임의 작성
+  const handleAllRemoveKeyword = () => {
+    setKeywords([])
+  }
+
   return (
     <div>
       <SearchBar onAddKeyword={handleAddKeyword} />
-      <SearchList keywords={keywords} onRemoveKeyword={handleRemoveKeyword} />
+      <SearchList
+        keywords={keywords}
+        onRemoveKeyword={handleRemoveKeyword}
+        onAllRemoveKeyword={handleAllRemoveKeyword}
+      />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const horizontalCenter = css`
   position: absolute;
@@ -85,6 +86,7 @@ function SearchBar({ onAddKeyword }) {
   }
 
   const handleEnter = (e) => {
+    if (keyword == '') return
     //엔터키 눌렸을 때 발생.
     if (e.keyCode === 13) {
       onAddKeyword(keyword)
@@ -93,6 +95,7 @@ function SearchBar({ onAddKeyword }) {
   }
 
   const handleClick = () => {
+    if (keyword == '') return
     onAddKeyword(keyword)
     setKeyword('')
   }
@@ -110,6 +113,10 @@ function SearchBar({ onAddKeyword }) {
       <SearchIcon onClick={handleClick} />
     </Container>
   )
+}
+
+SearchBar.propTypes = {
+  onAddKeyword: PropTypes.func,
 }
 
 export default SearchBar

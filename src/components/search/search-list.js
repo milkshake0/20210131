@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Container from '../shared/container'
 import Text from '../shared/text'
@@ -15,9 +16,6 @@ const RemoveText = styled.span`
   color: #a7a7a7;
 `
 
-const ListContainer = styled.ul`
-  margin: 10px 0;
-`
 const KeywordContainer = styled.li`
   overflow: hidden;
   &:not(:last-child) {
@@ -38,7 +36,7 @@ const Keyword = styled.span`
   font-weight: 400;
 `
 
-function SearchList({ keywords, onRemoveKeyword }) {
+function SearchList({ keywords, onRemoveKeyword, onAllRemoveKeyword }) {
   if (!keywords.length) {
     return <Container margin="20px">최근 검색어가 없습니다.</Container>
   }
@@ -48,7 +46,7 @@ function SearchList({ keywords, onRemoveKeyword }) {
       <Container padding="18px">
         <Container overflow="hidden">
           <Title color="#666">최근 검색어</Title>
-          <RemoveText>전체삭제</RemoveText>
+          <RemoveText onClick={onAllRemoveKeyword}>전체삭제</RemoveText>
         </Container>
         <Container margin="10px 0" as="ul">
           {keywords.map((keyword) => {
@@ -65,6 +63,14 @@ function SearchList({ keywords, onRemoveKeyword }) {
       </Container>
     </>
   )
+}
+
+SearchList.propTypes = {
+  keywords: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number, text: PropTypes.string }),
+  ),
+  onRemoveKeyword: PropTypes.func,
+  onAllRemoveKeyword: PropTypes.func,
 }
 
 export default SearchList
