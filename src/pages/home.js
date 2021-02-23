@@ -1,7 +1,16 @@
 import React from 'react'
 
+import Navbar from '../components/home/navbar'
+import SearchBar from '../components/home/search-bar'
+
 function HomePage() {
-  return <div>홈 페이지</div>
+  return (
+    <div>
+      <Navbar />
+      <SearchBar />
+      {/* <Webtoon /> */}
+    </div>
+  )
 }
 
 export default HomePage
